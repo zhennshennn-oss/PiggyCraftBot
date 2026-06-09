@@ -1,3 +1,4 @@
+import os
 import discord
 import asyncio
 from discord.ui import Modal, InputText, View, button
@@ -8,7 +9,6 @@ from infoEmbed import infoEmbed, ApplicationButton
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-BOT_TOKEN = "MTQ3NDQ0NTA4MzQyMzE0NjA0NA.GuDVjo.algy_ELkpTVDvQZV2bm5eBNXiywUdLavH4OR9Q"
 bot = discord.Bot()
     
 @bot.command()
@@ -31,4 +31,4 @@ async def on_ready():
     print(f"✅ Бот {bot.user} запущен!")
     bot.add_view(ApplicationButton(bot))
 
-bot.run(BOT_TOKEN)
+bot.run(os.getenv('DISCORD_TOKEN'))
