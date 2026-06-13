@@ -151,7 +151,7 @@ class ThreadButtons(View):
                             )
                             dm_embed.add_field(
                                 name="🎮 Как зайти на сервер",
-                                value="IP: **...**\nВерсия: **1.21.1**",
+                                value="IP: **mc.piggycraft.online**\nВерсия: **1.21.11**",
                                 inline=False
                             )
                             await applicant.send(embed=dm_embed)
