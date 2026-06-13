@@ -7,7 +7,7 @@ from mcrcon import MCRcon
 
 # ─── RCON конфиг ────────────────────────────────────────────────────────────
 RCON_HOST = os.getenv('RCON_HOST')
-RCON_PORT = os.getenv('RCON_PORT')
+RCON_PORT = int(os.getenv('RCON_PORT'))
 RCON_PASSWORD = os.getenv('RCON_PASSWORD')
 # ─── Добавление в whitelist через RCON ──────────────────────────────────────
 def add_to_whitelist(nickname: str) -> bool:
