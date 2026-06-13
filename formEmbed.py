@@ -10,6 +10,10 @@ RCON_HOST = os.getenv('RCON_HOST')
 RCON_PORT = int(os.getenv('RCON_PORT'))
 RCON_PASSWORD = os.getenv('RCON_PASSWORD')
 # ─── Добавление в whitelist через RCON ──────────────────────────────────────
+async def assign_role(member: discord.Member, role_name: str):
+    role = discord.utils.get(member.guild.roles, name=role_name)
+    await member.add_roles(role, reason="Заявка принята")
+
 def add_to_whitelist(nickname: str) -> bool:
     try:
         with MCRcon(RCON_HOST, RCON_PASSWORD, port=RCON_PORT) as mcr:
@@ -131,7 +135,13 @@ class ThreadButtons(View):
                                     if wl_success
                                     else "⚠️ Ошибка RCON — добавьте в whitelist вручную"
                                 )
-
+                                # Выдача роли
+                                try:
+                                    await assign_role(member, 1515311488171249694)  # 👈 ЗАМЕНИТЕ "Игрок" на вашу роль
+                                    role_status = "✅ Выдана роль Игрок"
+                                except Exception as e:
+                                    role_status = f"⚠️ Ошибка выдачи роли: {e}"
+                                    
                             # DM игроку
                             applicant = await self.bot.fetch_user(applicant_id)
                             dm_embed = discord.Embed(
