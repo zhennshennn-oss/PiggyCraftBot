@@ -1,3 +1,4 @@
+import os
 import discord
 import asyncio
 from discord.ui import Modal, InputText, View, Button
