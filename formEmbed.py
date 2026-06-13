@@ -5,9 +5,6 @@ from datetime import datetime
 from mcrcon import MCRcon
 
 # ─── RCON конфиг ────────────────────────────────────────────────────────────
-RCON_HOST = "127.0.0.1"   # IP твоего Minecraft-сервера
-RCON_PORT = 25575          # rcon.port из server.properties
-RCON_PASSWORD = "твой_пароль"  # rcon.password из server.properties
 
 # ─── Добавление в whitelist через RCON ──────────────────────────────────────
 def add_to_whitelist(nickname: str) -> bool:
