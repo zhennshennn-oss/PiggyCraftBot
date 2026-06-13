@@ -10,8 +10,8 @@ RCON_HOST = os.getenv('RCON_HOST')
 RCON_PORT = int(os.getenv('RCON_PORT'))
 RCON_PASSWORD = os.getenv('RCON_PASSWORD')
 # ─── Добавление в whitelist через RCON ──────────────────────────────────────
-async def assign_role(member: discord.Member, role_name: str):
-    role = discord.utils.get(member.guild.roles, name=role_name)
+async def assign_role(member: discord.Member, role_id: int):
+    role = member.guild.get_role(role_id)
     await member.add_roles(role, reason="Заявка принята")
 
 def add_to_whitelist(nickname: str) -> bool:
